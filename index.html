@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- css  -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!--bootstrap bundle cdn -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <!-- fontawesome -->
+    <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+   
+    <!-- css -->
+    <style>
+        #background-image{
+            background-image: url("form.jpeg");
+            background-position: center;
+
+        }
+    </style>
+   
+
+
+
+</head>
+<body>
+<div class="container-fluid">
+    <header>
+        <nav class="navbar bg-primary">
+    <a class="navbar-brand"><i class="fas fa-child text-danger fa-3x"></i></a>
+        </nav>
+    </header>
+</div>
+
+    <div class="container pt-5">
+        <div class="row" id="background-image">
+        <h1 class="pt-5 text-center pb-5 text-light" >Form validation</h1>
+        <div class="col-lg-8 m-auto d-block text-center">
+            <form action="" onsubmit="return validation()"class=" pb-3 pt-3">
+               <div class="form-group">
+                   <input type="text"id="User"placeholder="Username" class="form-control"autocomplete="off">
+                   <span id="username" class="text-danger "></span>
+               </div><br>
+               <div class="form-group">
+                <input type="text"id="Pass"placeholder="Password" class="form-control"autocomplete="off">
+                <span id="password" class="text-danger"></span>
+            </div><br>
+            <div class="form-group">
+                <input type="text"id="Confirmpassword"placeholder="Confirm password" class="form-control"autocomplete="off">
+                <span id="Conpassword" class="text-danger"></span>
+            </div><br>
+            <div class="form-group">
+                <input type="text"id="Email"placeholder="E-mail" class="form-control"autocomplete="off">
+                <span id="Emails" class="text-danger"></span>
+            </div><br>
+            <div class="form-group">
+                <input type="text"id="Mobile"placeholder="Mobile no" class="form-control"autocomplete="off">
+                <span id="mobiles" class="text-danger"></span>
+            </div><br>
+            <input type="submit"value="submit"class="btn btn-outline-danger">    
+        </form>
+        </div>
+        </div>
+           
+</div>
+
+<!-- footer secction -->
+<div class="container-fluid pt-5">
+<footer class="bg-dark">
+    <div class="row pt-5 ">
+        <div class="col-lg-3 text-center">
+    <h2 class="text-light">Contact Us</h2>
+    </div>
+    <div class="col-lg-6 text-center">
+     <p class="text-center text-light lead">@ All right 2022 develope by Mohd zafar </p>
+</div>
+<div class="col-lg-3 text-center pb-5">
+     <i class="fab fa-facebook  fa-3x ms-auto text-primary" ></i>
+     <i class="fab fa-instagram fa-3x text-danger ms-auto"></i>
+     <i class="fab fa-twitter   fa-3x  ms-auto text-primary"></i>
+    </div>
+</div>
+</footer>
+
+</div>
+
+
+<!-- js -->
+<script>
+function validation(){
+    var user=document.getElementById('User').value;
+    var Pass=document.getElementById('Pass').value;
+    var Confirmpassword=document.getElementById('Confirmpassword').value;
+    var Email=document.getElementById('Email').value;
+    var Mobile=document.getElementById('Mobile').value;
+
+
+// username
+    if(user ==""){
+        document.getElementById('username').innerHTML="****place fill the username ";
+        return false;
+    }
+   if((user.lenght >2) || (user.lenght > 20)){
+       document.getElementById('username').innerHTML=" **user lenght must be between 2 and 20";
+       return false;
+   }
+   if(!isNaN(user)){
+    document.getElementById('username').innerHTML="***you are not enter number" 
+    return false;
+   }
+ 
+
+// password section
+
+    if(Pass ==""){
+        document.getElementById('password').innerHTML="****place fill the password ";
+        return false;
+    }
+    if((Pass.lenght <=6) || (Pass.lenght > 20)){
+       document.getElementById('password').innerHTML=" **Pass lenght must be between 5 and 20";
+       return false;
+   }
+   if(Pass !=Confirmpassword){
+       document.getElementById('Conpassword').innerHTML="** password are not match";
+       return false;
+   }
+
+
+
+
+
+    if(Confirmpassword ==""){
+        document.getElementById('Conpassword').innerHTML="****place fill the Confirm password";
+        return false;
+    }
+
+///email
+    if(Email ==""){
+        document.getElementById('Emails').innerHTML="****place fill the email";
+        return false;
+    }
+if(Email.index('@') <=0){
+    document.getElementById('Emails').innerHTML="****@ Invaild postion ";
+        return false;
+}
+if((Email.charAt(Email.lenght-4)!=".") && (Email.charAt(Email.lenght-3)!=".")){
+    document.getElementById('Emails').innerHTML="**** . Invaild postion ";
+        return false;
+
+
+}
+
+
+
+
+//mobile
+    if(Mobile ==""){
+        document.getElementById('mobiles').innerHTML="****place fill the mobile";
+        return false;
+    }
+if(isNaN(Mobile)){
+    document.getElementById('mobiles').innerHTML="****user do not enter charater ,enter only number";
+        return false;
+}
+if(Mobile.lenght !=10){
+    document.getElementById('mobiles').innerHTML="****plese fill the correct number  ";
+        return false;
+}
+
+
+}
+ 
+
+
+
+
+
+</script>
+
+
+
+
+</body>
+</html>
